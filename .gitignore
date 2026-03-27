@@ -35,3 +35,16 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Secrets & Env files
+.env
+.env.local
+*.properties.local
+
+# Docker volumes
+/pgdata/
+/db_data/
+
+# OS files
+.DS_Store
+Thumbs.db
