@@ -15,7 +15,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, unique = true, updatable = false)
     private UUID uuid;
@@ -32,6 +32,7 @@ public class User {
     @Column(nullable = false)
     private boolean active;
 
+    @PrePersist
     public void initializeUuid() {
         uuid = (uuid == null) ? UUID.randomUUID() : uuid;
     }
