@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.SQLRestriction;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
@@ -21,9 +23,11 @@ import java.time.Instant;
 @SQLRestriction("deleted = false")
 public abstract class AbstractEntity {
 
+    @CreatedDate
     @Column(name = "created_at", columnDefinition = "TIMESTAMPTZ")
     private Instant createdAt;
 
+    @LastModifiedDate
     @Column(name = "updated_at", columnDefinition = "TIMESTAMPTZ")
     private Instant updatedAt;
 
