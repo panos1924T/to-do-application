@@ -7,6 +7,10 @@ import pants.personal.app.toDo.model.User;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * This interface provides the basic CRUD for the user entity
+ */
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 

@@ -14,6 +14,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
 
+/**
+ * superclass used for soft delete, created at, updated at
+ * and whether is deleted or not
+ */
+
 @MappedSuperclass
 @Getter
 @Setter

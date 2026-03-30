@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.UUID;
 
+/**
+ * User entity (Java bean)
+ */
+
 @Entity
 @Table(name = "users")
 @Getter

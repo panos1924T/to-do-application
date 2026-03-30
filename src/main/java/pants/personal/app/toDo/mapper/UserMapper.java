@@ -5,6 +5,11 @@ import pants.personal.app.toDo.dto.UserCreateDTO;
 import pants.personal.app.toDo.dto.UserReadOnlyDTO;
 import pants.personal.app.toDo.model.User;
 
+/**
+ * This mapper class transforms a user object into an entity
+ * and into read only for the client
+ */
+
 @Component
 public class UserMapper {
 
