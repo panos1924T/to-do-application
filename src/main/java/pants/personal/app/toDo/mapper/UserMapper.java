@@ -18,6 +18,7 @@ public class UserMapper {
         user.setEmail(dto.email());
         user.setUsername(dto.username());
         user.setPassword(hashedPassword);
+        user.setActive(true);
         return user;
     }
 
