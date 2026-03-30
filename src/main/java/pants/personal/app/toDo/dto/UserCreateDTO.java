@@ -8,9 +8,6 @@ import jakarta.validation.constraints.Size;
 
 /**
  * public record for user creation
- * @param username
- * @param email
- * @param password
  */
 public record UserCreateDTO(
         @NotBlank
