@@ -18,7 +18,7 @@ public class User extends AbstractEntity{
     private Long id;
 
     @Column(nullable = false, unique = true, updatable = false)
-    private UUID uuid;
+    private UUID uuid = UUID.randomUUID();
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -31,9 +31,4 @@ public class User extends AbstractEntity{
 
     @Column(nullable = false)
     private boolean active;
-
-    @PrePersist
-    public void initializeUuid() {
-        uuid = (uuid == null) ? UUID.randomUUID() : uuid;
-    }
 }
