@@ -2,6 +2,7 @@ package pants.personal.app.toDo.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pants.personal.app.toDo.core.exception.EntityAlreadyExistsException;
 import pants.personal.app.toDo.core.exception.EntityNotFoundException;
 import pants.personal.app.toDo.dto.UserCreateDTO;
@@ -17,6 +18,7 @@ import java.util.UUID;
  * Implementation of the {@link IUserService} interface responsible for handling
  * user-related operations such as creation and retrieval by UUID.
  */
+@Transactional(readOnly = true)
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements IUserService{
@@ -24,8 +26,9 @@ public class UserServiceImpl implements IUserService{
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
+    @Transactional
     @Override
-    public UserReadOnlyDTO createUser(UserCreateDTO dto) throws EntityAlreadyExistsException{
+    public UserReadOnlyDTO createUser(UserCreateDTO dto){
         if (userRepository.existsByUsername(dto.username())) {
             throw new EntityAlreadyExistsException("Username already exists");
         }

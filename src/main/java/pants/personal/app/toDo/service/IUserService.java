@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 public interface IUserService {
 
-    UserReadOnlyDTO createUser(UserCreateDTO dto) throws EntityAlreadyExistsException;
+    UserReadOnlyDTO createUser(UserCreateDTO dto);
 
     UserReadOnlyDTO getUserByUuid(UUID uuid);
 }
