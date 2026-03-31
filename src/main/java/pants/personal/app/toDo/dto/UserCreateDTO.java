@@ -2,7 +2,6 @@ package pants.personal.app.toDo.dto;
 
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -10,14 +9,14 @@ import jakarta.validation.constraints.Size;
  * public record for user creation
  */
 public record UserCreateDTO(
-        @NotBlank
+        @NotNull
         String username,
 
-        @NotBlank
+        @NotNull
         @Email
         String email,
 
-        @NotBlank
+        @NotNull
         @Size(min = 8)
         String password) {
 }
