@@ -1,7 +1,9 @@
 package pants.personal.app.toDo.service;
 
 
+import pants.personal.app.toDo.core.exception.EntityAlreadyExistsException;
 import pants.personal.app.toDo.dto.UserCreateDTO;
+import pants.personal.app.toDo.dto.UserReadOnlyDTO;
 import pants.personal.app.toDo.model.User;
 
 import java.util.UUID;
@@ -14,7 +16,7 @@ import java.util.UUID;
  */
 public interface IUserService {
 
-    public User createUser(UserCreateDTO dto);
+    UserReadOnlyDTO createUser(UserCreateDTO dto) throws EntityAlreadyExistsException;
 
-    public void getUser(UUID uuid);
+    UserReadOnlyDTO getUserByUuid(UUID uuid);
 }
