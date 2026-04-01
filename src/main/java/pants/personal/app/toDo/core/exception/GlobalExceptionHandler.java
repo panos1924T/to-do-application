@@ -52,4 +52,15 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(400).body(errorResponseDTO);
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDTO> handleEverything(Exception e, HttpServletRequest request) {
+        return ResponseEntity.status(500).body(new ErrorResponseDTO(
+                LocalDateTime.now(),
+                500,
+                "GENERIC_ERROR",
+                "An internal server error occurred.",
+                request.getRequestURI()
+        ));
+    }
 }
