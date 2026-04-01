@@ -1,12 +1,14 @@
 package pants.personal.app.toDo.core.exception;
 
 
+import org.springframework.http.HttpStatus;
+
 /**
  * Exception thrown to indicate that an attempt to create or add an entity has failed
  * because an entity with the same identifier or properties already exists.
  */
 public class EntityAlreadyExistsException extends AppGenericException {
     public EntityAlreadyExistsException(String message) {
-        super("ALREADY_EXISTS", message);
+        super("ALREADY_EXISTS", message, HttpStatus.CONFLICT);
     }
 }
