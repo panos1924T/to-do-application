@@ -23,7 +23,7 @@ public class UserController {
             @Valid @RequestBody UserCreateDTO dto
             ) {
         UserReadOnlyDTO responseDTO = userService.createUser(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+        return ResponseEntity.status(201).body(responseDTO);
     }
 
     @GetMapping("/{userUuid}")
